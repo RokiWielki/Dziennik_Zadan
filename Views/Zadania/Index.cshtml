@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Dziennik_Zadan.Models.ZadaniaModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Lista Zadań</h1>
+
+<p>
+    <a asp-action="Create">Dodaj zadanie</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nazwa)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nazwa)
+            </td>
+            <td>
+                @Html.ActionLink("Zrobione", "Done", new { id=item.ZadaniaId }) |
+                @Html.ActionLink("Edytuj", "Edit", new { id=item.ZadaniaId }) |
+                @Html.ActionLink("Wytyczne", "Details", new { id=item.ZadaniaId}) |
+                @Html.ActionLink("Usuń", "Delete", new { id=item.ZadaniaId })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,3 +1,8 @@
+using Dziennik_Zadan.Models;
+using Dziennik_Zadan.Repositories;
+using Microsoft.EntityFrameworkCore;
+using System.Configuration;
+
 namespace Dziennik_Zadan
 {
     public class Program
@@ -8,6 +13,9 @@ namespace Dziennik_Zadan
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddDbContext<DziennikZadanContext>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DziennikZadanDatabase")));
+            builder.Services.AddTransient<IZadaniaRepository,ZadaniaRepository>();
 
             var app = builder.Build();
 
@@ -28,7 +36,7 @@ namespace Dziennik_Zadan
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
+                pattern: "{controller=Zadania}/{action=Index}/{id?}");
 
             app.Run();
         }
