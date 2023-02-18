@@ -38,5 +38,6 @@ namespace Dziennik_Zadan.Repositories
                 _context.SaveChanges();
             }
         }
+
     }
 }

@@ -36,7 +36,7 @@ namespace Dziennik_Zadan
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Zadania}/{action=Index}/{id?}");
+                pattern: "{controller=Zadania}/{action=Indexx}/{id?}");
 
             app.Run();
         }

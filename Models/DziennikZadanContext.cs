@@ -8,5 +8,6 @@ namespace Dziennik_Zadan.Models
         {
         }
         public DbSet<ZadaniaModel> Zadania { get; set; }
+        
     }
 }

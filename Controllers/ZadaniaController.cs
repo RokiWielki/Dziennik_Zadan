@@ -13,12 +13,16 @@ namespace Dziennik_Zadan.Controllers
         {
             _zadania= zadaniaRepository;
         }
-        private static IList<ZadaniaModel> zadaniaZrobione = new List<ZadaniaModel>();
+
         // GET: ZadaniaController
 
         public ActionResult Index()
         {
             return View(_zadania.GetAllActive());
+        }
+        public ActionResult Indexx()
+        {
+            return View();
         }
 
         // GET: ZadaniaController/Details/5
@@ -81,6 +85,15 @@ namespace Dziennik_Zadan.Controllers
             done.Zrobione = true;
             _zadania.Update(id,done);
 
+
+
+            return RedirectToAction(nameof(Index));
+        }
+        public ActionResult Doned(int id)
+        {
+            ZadaniaModel doned= _zadania.Get(id);
+            doned.Zrobione = false;
+            _zadania.Get(id);
             return RedirectToAction(nameof(Index));
         }
     }
