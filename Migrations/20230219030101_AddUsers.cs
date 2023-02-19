@@ -51,7 +51,9 @@ namespace Dziennik_Zadan.Migrations
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
                 });
 
-            migrationBuilder.CreateTable(
+            //komentarz na tabele zadania
+
+            /*migrationBuilder.CreateTable(
                 name: "Zadania",
                 columns: table => new
                 {
@@ -64,7 +66,7 @@ namespace Dziennik_Zadan.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Zadania", x => x.ZadaniaId);
-                });
+                });*/
 
             migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",

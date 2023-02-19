@@ -6,8 +6,10 @@ namespace Dziennik_Zadan.Repositories
     {
         ZadaniaModel Get(int id);
         IQueryable<ZadaniaModel> GetAllActive();
+        IQueryable<ZadaniaModel> GetDisActive();
         void Add(ZadaniaModel zadania);
         void Update(int ZadaniaId, ZadaniaModel zadania);
         void Delete(int ZadaniaId);
+        
     }
 }

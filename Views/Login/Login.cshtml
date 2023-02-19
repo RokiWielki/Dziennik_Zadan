@@ -1,5 +1,17 @@
-﻿
-
+﻿@model Dziennik_Zadan.Models.Login
 
 <h1>Logowanie</h1>
+@using (Html.BeginForm("Login", "Login", FormMethod.Post))
+{
+    @Html.ValidationSummary()
+    ;
+    <span>Login: </span> @Html.TextBoxFor(x=>x.UserName)
+
+    <span>Hasło: </span> @Html.PasswordFor(x=>x.Password)
+
+    <button type="submit">Zaloguj</button>
+}
+
+
+
 

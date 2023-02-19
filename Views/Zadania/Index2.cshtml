@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Dziennik_Zadan.Models.ZadaniaModel>
+
+@{
+    ViewData["Title"] = "Index2";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Zadania Wykonane</h1>
+
+<p>
+    <a asp-action="Create"></a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nazwa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Wytyczne)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Zrobione)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nazwa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Wytyczne)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Zrobione)
+            </td>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.ZadaniaId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ZadaniaId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

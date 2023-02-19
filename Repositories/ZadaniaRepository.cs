@@ -11,6 +11,7 @@ namespace Dziennik_Zadan.Repositories
         }
         public ZadaniaModel Get(int id) => _context.Zadania.SingleOrDefault(x => x.ZadaniaId == id);
         public IQueryable<ZadaniaModel> GetAllActive() => _context.Zadania.Where(x => !x.Zrobione);
+        public IQueryable<ZadaniaModel> GetDisActive() => _context.Zadania.Where(x => x.Zrobione);
         public void Add(ZadaniaModel zadania)
         {
             _context.Zadania.Add(zadania);

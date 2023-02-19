@@ -2,6 +2,7 @@
 using Dziennik_Zadan.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.VisualBasic;
 
 namespace Dziennik_Zadan.Controllers
@@ -19,6 +20,10 @@ namespace Dziennik_Zadan.Controllers
         public ActionResult Index()
         {
             return View(_zadania.GetAllActive());
+        }
+        public ActionResult Index2()
+        {
+            return View(_zadania.GetDisActive());
         }
         public ActionResult Indexx()
         {
@@ -87,13 +92,6 @@ namespace Dziennik_Zadan.Controllers
 
 
 
-            return RedirectToAction(nameof(Index));
-        }
-        public ActionResult Doned(int id)
-        {
-            ZadaniaModel doned= _zadania.Get(id);
-            doned.Zrobione = false;
-            _zadania.Get(id);
             return RedirectToAction(nameof(Index));
         }
     }
